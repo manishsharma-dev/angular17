@@ -7,7 +7,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   let router: Router = inject(Router);
   let activatedRoute: ActivatedRoute = inject(ActivatedRoute);
   const token = helperSerive.token()
-  if (!token) {
+  if (token) {
     router.navigate(['/login']);
   }
   return true;
